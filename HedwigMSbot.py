@@ -8,8 +8,7 @@ mi_bot_updater = Updater(mi_bot.token)
 def listener(bot, update):
 	id=update.message.chat_id
 	mensaje=update.message.text
-	if 'patata' in mensaje:
-		bot.sendMessage(chat_id=id, text='Boniato')
+	print('ID: '+ str(id) + (' Mensaje: ')+ mensaje)
 
 def start(bot, update, pass_chat_data=True):
 	id=update.message.chat_id
