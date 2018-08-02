@@ -9,7 +9,7 @@ def listener(bot, update):
 	mensaje=update.message.text
 	hora=update.message.date
 	print('ID: '+ str(id) + (' Mensaje: ') + mensaje)
-	print('Hora del mensaje: '+hora)
+	print('ID: '+str(id)+ 'Hora del mensaje: '+ str(hora))
 
 def start(bot, update, pass_chat_data=True):
 	id=update.message.chat_id
