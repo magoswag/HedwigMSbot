@@ -1,1 +1,1 @@
-bot: python3 HedwigMSbot.py
+bot: Hedwig HedwigMSbot.py
