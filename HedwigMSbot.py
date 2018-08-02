@@ -10,8 +10,6 @@ def listener(bot, update):
 	hora=update.message.date
 	print('ID: '+ str(id) + (' Mensaje: ') + mensaje)
 	print('Hora del mensaje: ' + hora)
-	if 'hora' in mensaje:
-		bot.sendMessage(chat_id=id, text= 'Son las ')
 
 def start(bot, update, pass_chat_data=True):
 	id=update.message.chat_id
