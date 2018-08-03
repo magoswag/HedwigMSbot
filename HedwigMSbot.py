@@ -10,6 +10,8 @@ def listener(bot, update):
 	hora=str(update.message.date)
 	print('ID: '+ str(id) + (' Mensaje: ') + mensaje)
 	print('ID: '+str(id)+ ' Hora del mensaje: '+ hora)
+	elif 'hora' in message:
+		bot.sendMessage(chat_id=id, text='Estamos a '+ hora)
 
 def hora(bot, update):
 	id=update.message.chat_id
@@ -27,7 +29,7 @@ def start(bot, update, pass_chat_data=True):
 def help(bot, update):
 	id=update.message.chat_id
 	mensaje=update.message.text
-	bot.sendMessage(chat_id=id, text='Los comandos que puedes utilizar conmigo son: /start /help')
+	bot.sendMessage(chat_id=id, text='Los comandos que puedes utilizar conmigo son: /start /help /hora')
 
 
 
