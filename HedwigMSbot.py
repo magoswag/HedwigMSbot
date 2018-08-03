@@ -27,7 +27,7 @@ def listener(bot, update): #Te dice el id, mensaje y la fecha a la que se ha env
 	if ('Hola' in mensaje or 'hola' in mensaje) and len(mensaje)<10:
 		bot.sendMessage(chat_id=id, text='Hola '+ user.first_name+'!')
 	if ('fecha' in mensaje or 'Fecha' in mensaje) and len(mensaje)<20: #Para que te diga a que fecha estamos sin usar comando
-		bot.sendMessage(chat_id=id, text='Estamos a '+ date +1)
+		bot.sendMessage(chat_id=id, text='Estamos a '+ (date +1))
 
 
 def fecha(bot, update): #Comando para saber la fecha en la que estás
