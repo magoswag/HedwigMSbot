@@ -3,13 +3,13 @@ from telegram.ext import *
 
 mi_bot = telegram.Bot(token='682980920:AAGybjIygCGh3O6qXVdNCYgAazuJ8pBR6cc')
 mi_bot_updater = Updater(mi_bot.token)
-	
+
 def listener(bot, update):
 	id=update.message.chat_id
 	mensaje=update.message.text
-	hora=update.message.date
+	hora=str(update.message.date)
 	print('ID: '+ str(id) + (' Mensaje: ') + mensaje)
-	print('ID: '+str(id)+ ' Hora del mensaje: '+ str(hora))
+	print('ID: '+str(id)+ ' Hora del mensaje: '+ hora)
 
 def start(bot, update, pass_chat_data=True):
 	id=update.message.chat_id
