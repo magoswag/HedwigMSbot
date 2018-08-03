@@ -11,6 +11,11 @@ def listener(bot, update):
 	print('ID: '+ str(id) + (' Mensaje: ') + mensaje)
 	print('ID: '+str(id)+ ' Hora del mensaje: '+ hora)
 
+def hora(bot, update):
+	id=update.message.chat_id
+	hora=str(update.message.date)
+	bot.sendMessage(chat_id=id, text='Estamos a '+ hora)
+
 def start(bot, update, pass_chat_data=True):
 	id=update.message.chat_id
 	mensaje=update.message.text
