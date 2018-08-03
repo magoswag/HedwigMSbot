@@ -32,14 +32,16 @@ def fecha(bot, update): #Comando para saber la fecha en la que estás
 def conv(bot, update): #Función para poder entablar una conversación normal con el bot
 	id=update.message.chat_id
 	mensaje=update.message.text
-	if 'hora' or 'Hora' in mensaje:
-		bot.sendMessage(chat_id=id, text='Estamos a '+ hora)
+	fecha=str(update.message.date)
+	if 'fecha' or 'Fecha' in mensaje:
+		bot.sendMessage(chat_id=id, text='Estamos a '+ fecha)
 
 
 start_handler = CommandHandler('start',start)
 listener_handler = MessageHandler(Filters.text, listener)
 help_handler= CommandHandler('help',help)
 fecha_handler= CommandHandler('fecha', fecha)
+conv_handler= MessageHandler(Filters.text, conv)
 
 dispatcher = mi_bot_updater.dispatcher
 
@@ -47,6 +49,7 @@ dispatcher.add_handler(start_handler)
 dispatcher.add_handler(listener_handler)
 dispatcher.add_handler(help_handler)
 dispatcher.add_handler(fecha_handler)
+dispatcher.add_handler(conv_handler)
 
 mi_bot_updater.start_polling()
 mi_bot_updater.idle()
