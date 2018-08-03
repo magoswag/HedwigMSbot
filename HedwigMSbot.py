@@ -18,11 +18,11 @@ def help(bot, update): #Comando para saber los comandos que puede ejecutar el bo
 	bot.sendMessage(chat_id=id, text='Los comandos que puedes utilizar conmigo son: /start /help /fecha')
 
 def listener(bot, update): #Te dice el id, mensaje y la fecha a la que se ha enviado el mensaje
-	id=update.message.chat_id
+	id=str(update.message.chat_id)
 	mensaje=update.message.text
 	hora=str(update.message.date)
-	print('ID: '+ str(id) + (' Mensaje: ') + mensaje)
-	print('ID: '+str(id)+ ' Hora del mensaje: '+ hora)
+	print('ID: '+ id + ' Mensaje: ' + mensaje)
+	print('ID: '+ id + ' Hora del mensaje: '+ hora)
 
 def fecha(bot, update): #Comando para saber la fecha en la que estás
 	id=update.message.chat_id
@@ -38,18 +38,20 @@ def conv(bot, update): #Función para poder entablar una conversación normal co
 
 
 start_handler = CommandHandler('start',start)
+conv_handler= MessageHandler(Filters.text, conv)
 listener_handler = MessageHandler(Filters.text, listener)
 help_handler= CommandHandler('help',help)
 fecha_handler= CommandHandler('fecha', fecha)
-conv_handler= MessageHandler(Filters.text, conv)
+
 
 dispatcher = mi_bot_updater.dispatcher
 
 dispatcher.add_handler(start_handler)
+dispatcher.add_handler(conv_handler)
 dispatcher.add_handler(listener_handler)
 dispatcher.add_handler(help_handler)
 dispatcher.add_handler(fecha_handler)
-dispatcher.add_handler(conv_handler)
+
 
 mi_bot_updater.start_polling()
 mi_bot_updater.idle()
