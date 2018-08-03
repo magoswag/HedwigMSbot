@@ -23,8 +23,6 @@ def listener(bot, update): #Te dice el id, mensaje y la fecha a la que se ha env
 	hora=str(update.message.date)
 	print('ID: '+ str(id) + (' Mensaje: ') + mensaje)
 	print('ID: '+str(id)+ ' Hora del mensaje: '+ hora)
-	if 'hora' in mensaje:
-		bot.sendMessage(chat_id=id, text='Estamos a '+ hora)
 
 def fecha(bot, update): #Comando para saber la fecha en la que estás
 	id=update.message.chat_id
@@ -34,6 +32,8 @@ def fecha(bot, update): #Comando para saber la fecha en la que estás
 def conv(bot, update): #Función para poder entablar una conversación normal con el bot
 	id=update.message.chat_id
 	mensaje=update.message.text
+	if 'hora' or 'Hora' in mensaje:
+		bot.sendMessage(chat_id=id, text='Estamos a '+ hora)
 
 
 start_handler = CommandHandler('start',start)
