@@ -13,10 +13,10 @@ def listener(bot, update):
 	if 'hora' in message:
 		bot.sendMessage(chat_id=id, text='Estamos a '+ hora)
 
-def hora(bot, update):
+def fecha(bot, update):
 	id=update.message.chat_id
-	hora=str(update.message.date)
-	bot.sendMessage(chat_id=id, text='Estamos a '+ hora)
+	fecha=str(update.message.date)
+	bot.sendMessage(chat_id=id, text='Estamos a '+ fecha)
 
 def start(bot, update, pass_chat_data=True):
 	id=update.message.chat_id
@@ -29,21 +29,21 @@ def start(bot, update, pass_chat_data=True):
 def help(bot, update):
 	id=update.message.chat_id
 	mensaje=update.message.text
-	bot.sendMessage(chat_id=id, text='Los comandos que puedes utilizar conmigo son: /start /help /hora')
+	bot.sendMessage(chat_id=id, text='Los comandos que puedes utilizar conmigo son: /start /help /fecha')
 
 
 
 start_handler = CommandHandler('start',start)
 listener_handler = MessageHandler(Filters.text, listener)
 help_handler= CommandHandler('help',help)
-hora_handler= CommandHandler('hora', hora)
+fecha_handler= CommandHandler('fecha', fecha)
 
 dispatcher = mi_bot_updater.dispatcher
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(listener_handler)
 dispatcher.add_handler(help_handler)
-dispatcher.add_handler(hora_handler)
+dispatcher.add_handler(fecha_handler)
 
 mi_bot_updater.start_polling()
 mi_bot_updater.idle()
