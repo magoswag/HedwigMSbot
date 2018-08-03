@@ -20,11 +20,13 @@ def help(bot, update): #Comando para saber los comandos que puede ejecutar el bo
 def listener(bot, update): #Te dice el id, mensaje y la fecha a la que se ha enviado el mensaje
 	id=str(update.message.chat_id)
 	mensaje=update.message.text
-	fecha=str(update.message.date)
+	date=str(update.message.date)
 	print('ID: '+ id + ' Mensaje: ' + mensaje)
-	print('ID: '+ id + ' Hora del mensaje: '+ fecha)
+	print('ID: '+ id + ' Hora del mensaje: '+ date)
 	if 'fecha' or 'Fecha' in mensaje: #Para que te diga a que fecha estamos sin usar comando
-		bot.sendMessage(chat_id=id, text='Estamos a '+ fecha)
+		bot.sendMessage(chat_id=id, text='Estamos a '+ date)
+	else:
+		bot.sendMessage(chat_id=id, text='No te entiendo, lo siento.')
 
 def fecha(bot, update): #Comando para saber la fecha en la que estás
 	id=update.message.chat_id
