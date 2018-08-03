@@ -34,12 +34,14 @@ def help(bot, update):
 start_handler = CommandHandler('start',start)
 listener_handler = MessageHandler(Filters.text, listener)
 help_handler= CommandHandler('help',help)
+hora_handler= CommandHandler('hora', hora)
 
 dispatcher = mi_bot_updater.dispatcher
 
 dispatcher.add_handler(start_handler)
 dispatcher.add_handler(listener_handler)
 dispatcher.add_handler(help_handler)
+dispatcher.add_handler(hora_handler)
 
 mi_bot_updater.start_polling()
 mi_bot_updater.idle()
