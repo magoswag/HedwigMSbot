@@ -4,21 +4,7 @@ from telegram.ext import *
 mi_bot = telegram.Bot(token='682980920:AAGybjIygCGh3O6qXVdNCYgAazuJ8pBR6cc')
 mi_bot_updater = Updater(mi_bot.token)
 
-def listener(bot, update):
-	id=update.message.chat_id
-	mensaje=update.message.text
-	hora=str(update.message.date)
-	print('ID: '+ str(id) + (' Mensaje: ') + mensaje)
-	print('ID: '+str(id)+ ' Hora del mensaje: '+ hora)
-	if 'hora' in message:
-		bot.sendMessage(chat_id=id, text='Estamos a '+ hora)
-
-def fecha(bot, update):
-	id=update.message.chat_id
-	fecha=str(update.message.date)
-	bot.sendMessage(chat_id=id, text='Estamos a '+ fecha)
-
-def start(bot, update, pass_chat_data=True):
+def start(bot, update, pass_chat_data=True): #Comando de bienvenida
 	id=update.message.chat_id
 	mensaje=update.message.text
 	if id==4432484:
@@ -26,11 +12,28 @@ def start(bot, update, pass_chat_data=True):
 	else:
 		bot.sendMessage(chat_id=id, text='Bienvenido! 😊')
 
-def help(bot, update):
+def help(bot, update): #Comando para saber los comandos que puede ejecutar el bot
 	id=update.message.chat_id
 	mensaje=update.message.text
 	bot.sendMessage(chat_id=id, text='Los comandos que puedes utilizar conmigo son: /start /help /fecha')
 
+def listener(bot, update): #Te dice el id, mensaje y la fecha a la que se ha enviado el mensaje
+	id=update.message.chat_id
+	mensaje=update.message.text
+	hora=str(update.message.date)
+	print('ID: '+ str(id) + (' Mensaje: ') + mensaje)
+	print('ID: '+str(id)+ ' Hora del mensaje: '+ hora)
+	if 'hora' in mensaje:
+		bot.sendMessage(chat_id=id, text='Estamos a '+ hora)
+
+def fecha(bot, update): #Comando para saber la fecha en la que estás
+	id=update.message.chat_id
+	fecha=str(update.message.date)
+	bot.sendMessage(chat_id=id, text='Estamos a '+ fecha)
+
+def conv(bot, update): #Función para poder entablar una conversación normal con el bot
+	id=update.message.chat_id
+	mensaje=update.message.text
 
 
 start_handler = CommandHandler('start',start)
