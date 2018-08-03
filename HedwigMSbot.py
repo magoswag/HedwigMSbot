@@ -35,6 +35,8 @@ def conv(bot, update): #Función para poder entablar una conversación normal co
 	fecha=str(update.message.date)
 	if 'fecha' or 'Fecha' in mensaje:
 		bot.sendMessage(chat_id=id, text='Estamos a '+ fecha)
+	else:
+		bot.sendMessage(chat_id=id, text= 'No te entiendo')
 
 
 start_handler = CommandHandler('start',start)
