@@ -22,7 +22,7 @@ def listener(bot, update): #Te dice el id, mensaje y la fecha a la que se ha env
 	mensaje=update.message.text
 	fecha=str(update.message.date)
 	print('ID: '+ id + ' Mensaje: ' + mensaje)
-	print('ID: '+ id + ' Hora del mensaje: '+ hora)
+	print('ID: '+ id + ' Hora del mensaje: '+ fecha)
 	if 'fecha' or 'Fecha' in mensaje: #Para que te diga a que fecha estamos sin usar comando
 		bot.sendMessage(chat_id=id, text='Estamos a '+ fecha)
 
