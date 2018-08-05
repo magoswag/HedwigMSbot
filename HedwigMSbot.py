@@ -12,9 +12,9 @@ def start(bot, update, pass_chat_data=True): #Comando de bienvenida
 	id=update.message.chat_id
 	mensaje=update.message.text
 	if id==4432484:
-		bot.sendMessage(chat_id=id, text='Bienvenido, amo ⚡️ ¿Qué haremos hoy?')
+		bot.sendMessage(chat_id=id, text='Bienvenido, amo ⚡️\n¿Qué haremos hoy?')
 	else:
-		bot.sendMessage(chat_id=id, text='Bienvenido! 😊 Yo seré tu asistente personal. ¿Qué puedo hacer por ti?')
+		bot.sendMessage(chat_id=id, text='Bienvenido! 😊\nYo seré tu asistente personal. ¿Qué puedo hacer por ti?')
 
 def help(bot, update): #Comando para saber los comandos que puede ejecutar el bot
 	id=update.message.chat_id
