@@ -45,17 +45,12 @@ def addC(filter, handler, **args):
 def addM(filter, handler, **args):
         dp.add_handler(MessageHandler(filter, handler, **args))
 	
+dp = mi_bot_updater.dispatcher
+
 addC('start', start)
 addM(Filters.text, listener)
 addC('help', help)
 addC('fecha', fecha)
-
-dispatcher = mi_bot_updater.dispatcher
-
-dispatcher.add_handler(start_handler)
-dispatcher.add_handler(listener_handler)
-dispatcher.add_handler(help_handler)
-dispatcher.add_handler(fecha_handler)
 
 
 mi_bot_updater.start_polling()
