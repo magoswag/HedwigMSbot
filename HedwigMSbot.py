@@ -38,7 +38,8 @@ def listener(bot, update):
 	print('ID: ' + str(id) + ' Hora del mensaje: ' + date)
 	if ('Hola' in mensaje or 'hola' in mensaje) and len(mensaje) < 20:
 		bot.sendMessage(chat_id=id, text='Hola '+ user.first_name + '!')
-	if ('fecha' in mensaje or 'Fecha' in mensaje) and len(mensaje) <50:  # Para que te diga a que fecha estamos sin usar comando
+	if ('fecha' in mensaje or 'Fecha' in mensaje or 'dia' in mensaje or 'Dia' in mensaje)
+	and len(mensaje) <50:  # Para que te diga a que fecha estamos sin usar comando
 		bot.sendMessage(chat_id=id, text='Estamos a ' + date)
 
 # Comando para saber la fecha en la que estás
