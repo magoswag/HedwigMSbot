@@ -6,25 +6,33 @@ mi_bot = telegram.Bot(token='682980920:AAGybjIygCGh3O6qXVdNCYgAazuJ8pBR6cc')
 mi_bot_updater = Updater(mi_bot.token)
 
 import logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
+logging.basicConfig(format=
+'%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
+
 
 def start(bot, update, pass_chat_data=True):  # Comando de bienvenida
 	id = update.message.chat_id
 	mensaje = update.message.text
 	if id == 4432484:
-		bot.sendMessage(chat_id=id, text='Bienvenido, amo ⚡️\n¿Qué haremos hoy?')
+		bot.sendMessage(chat_id=id, text=
+		'Bienvenido, amo ⚡️\n¿Qué haremos hoy?')
 	else:
-		bot.sendMessage(chat_id=id, text='Bienvenido! 😊\nYo seré tu asistente personal. ¿Qué puedo hacer por ti?')
+		bot.sendMessage(chat_id=id, text=
+		'Bienvenido! 😊\nYo seré tu asistente personal. ¿Qué puedo hacer por ti?')
 
-def help(bot, update):  # Comando para saber los comandos que puede ejecutar el bot
+# Comando para saber los comandos que puede ejecutar el bot
+def help(bot, update):
 	id = update.message.chat_id
 	mensaje = update.message.text
-	bot.sendMessage(chat_id=id, text='Los comandos que puedes utilizar conmigo son: /start /help /fecha')
+	bot.sendMessage(chat_id=id,
+	text='Los comandos que puedes utilizar conmigo son: /start /help /fecha')
 
-def listener(bot, update):  # Te dice el id, mensaje y la fecha a la que se ha enviado el mensaje
+# Te dice el id, mensaje y la fecha a la que se ha enviado el mensaje
+def listener(bot, update):
 	id = update.message.chat_id
 	user = update.message.from_user
 	mensaje = update.message.text
+	#date1 = telegram.Message.date
 	date = str(update.message.date)
 	print('ID: ' + str(id) + ' Mensaje: ' + mensaje)
 	print('ID: ' + str(id) + ' Hora del mensaje: ' + date)
@@ -33,8 +41,8 @@ def listener(bot, update):  # Te dice el id, mensaje y la fecha a la que se ha e
 	if ('fecha' in mensaje or 'Fecha' in mensaje) and len(mensaje) < 20:  # Para que te diga a que fecha estamos sin usar comando
 		bot.sendMessage(chat_id=id, text='Estamos a ' + date)
 
-
-def fecha(bot, update):  # Comando para saber la fecha en la que estás
+# Comando para saber la fecha en la que estás
+def fecha(bot, update):
 	id = update.message.chat_id
 	fecha = str(update.message.date)
 	bot.sendMessage(chat_id=id, text='Estamos a ' + fecha)
@@ -44,7 +52,7 @@ def addC(filter, handler, **args):
 
 def addM(filter, handler, **args):
         dp.add_handler(MessageHandler(filter, handler, **args))
-	
+
 dp = mi_bot_updater.dispatcher
 
 addC('start', start)
