@@ -64,6 +64,3 @@ addC('fecha', fecha)
 
 mi_bot_updater.start_polling()
 mi_bot_updater.idle()
-
-while True:
-	pass
