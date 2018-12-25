@@ -5,7 +5,9 @@ from telegram.ext import *
 mi_bot = telegram.Bot(token='682980920:AAGybjIygCGh3O6qXVdNCYgAazuJ8pBR6cc')
 mi_bot_updater = Updater(mi_bot.token)
 
-
+import logging
+logging.basicConfig(format=
+'%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
 
 
 def start(bot, update, pass_chat_data=True):  # Comando de bienvenida
@@ -52,13 +54,13 @@ def addC(filter, handler, **args):
 def addM(filter, handler, **args):
         dp.add_handler(MessageHandler(filter, handler, **args))
 
-dp = mi_bot_updater.dispatcher
 
 addC('start', start)
 addM(Filters.text, listener)
 addC('help', help)
 addC('fecha', fecha)
 
+dp = mi_bot_updater.dispatcher
 
 mi_bot_updater.start_polling()
 mi_bot_updater.idle()
