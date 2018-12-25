@@ -38,7 +38,7 @@ def listener(bot, update):
 	print('ID: ' + str(id) + ' Hora del mensaje: ' + date)
 	if ('Hola' in mensaje or 'hola' in mensaje) and len(mensaje) < 20:
 		bot.sendMessage(chat_id=id, text='Hola '+ user.first_name + '!')
-	if ('fecha' in mensaje or 'Fecha' in mensaje or 'dia' in mensaje or 'Dia' in mensaje)
+	if ('Fecha' in mensaje or 'fecha' in mensaje or 'Dia' in mensaje or 'dia' in mensaje)
 	and len(mensaje) <50:  # Para que te diga a que fecha estamos sin usar comando
 		bot.sendMessage(chat_id=id, text='Estamos a ' + date)
 
@@ -48,19 +48,14 @@ def fecha(bot, update):
 	fecha = str(update.message.date)
 	bot.sendMessage(chat_id=id, text='Estamos a ' + fecha)
 
-def addC(filter, handler, **args):
-        dp.add_handler(CommandHandler(filter, handler, **args))
 
-def addM(filter, handler, **args):
-        dp.add_handler(MessageHandler(filter, handler, **args))
-
+dp = mi_bot_updater.dispatcher
 
 addC('start', start)
 addM(Filters.text, listener)
 addC('help', help)
 addC('fecha', fecha)
 
-dp = mi_bot_updater.dispatcher
 
 mi_bot_updater.start_polling()
 mi_bot_updater.idle()
