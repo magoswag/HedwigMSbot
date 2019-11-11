@@ -17,9 +17,9 @@ def start(bot, update, pass_chat_data=True): #Comando de bienvenida
 		bot.sendMessage(chat_id=id, text='Bienvenido! 😊\nYo seré tu asistente personal. ¿Qué puedo hacer por ti?')
 
 def help(bot, update): #Comando para saber los comandos que puede ejecutar el bot
-	id=update.message.chat_id
- 	mensaje=update.message.text
- 	bot.sendMessage(chat_id=id, text='Los comandos que puedes utilizar conmigo son: /start /help /fecha')
+    id=update.message.chat_id
+    mensaje=update.message.text
+    bot.sendMessage(chat_id=id, text='Los comandos que puedes utilizar conmigo son: /start /help /fecha')
 
 def listener(bot, update): #Te dice el id, mensaje y la fecha a la que se ha enviado el mensaje
  	id=update.message.chat_id
